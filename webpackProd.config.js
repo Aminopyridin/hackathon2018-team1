@@ -1,13 +1,14 @@
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 const path = require('path');
 
 module.exports = {
     entry: './src/index.js',
     output: {
         path: path.resolve('build'),
-        publicPath: 'build',
-        filename: 'index.js',
+        filename: 'index.[hash].js',
     },
-    devtool: 'source-map',
     module: {
         rules: [
             {
@@ -16,13 +17,15 @@ module.exports = {
             },
             {
                 test: /\.css$/,
-                use: ['style-loader', {
+                use: [{
+                    loader: MiniCssExtractPlugin.loader,
+                },  {
                     loader: 'css-loader',
                     options: {
                         modules: true,
-                        localIdentName: '[name]__[local]--[hash:base64:5]',
+                        localIdentName: '[hash:base64:5]',
                     },
-                }, ]
+                }]
             },
             {
                 test: /\.(png|woff|woff2|eot)$/,
@@ -37,5 +40,14 @@ module.exports = {
     resolve: {
         modules: ['node_modules'],
         extensions: ['.js', '.jsx'],
-    }
+    },
+    plugins: [
+        new HtmlWebpackPlugin({
+            title: 'Новогодний хакатон',
+            template: './template.html'
+        }),
+        new MiniCssExtractPlugin({
+            filename: "styles.[hash].css",
+        })
+    ]
 };

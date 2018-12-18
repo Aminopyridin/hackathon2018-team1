@@ -3,7 +3,7 @@
     min-height: 100vh;
 }
 
-.tree-wrapper {
+.treeWrapper {
     position: relative;
     display: flex;
     min-width: 50%;
