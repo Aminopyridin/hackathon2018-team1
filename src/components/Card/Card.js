@@ -11,8 +11,6 @@ class Card extends React.Component {
     render () {
         return (
             <div className={this.opened ? styles.cardFront : styles.cardBack} onClick={this.onClick}>
-
-
             </div>
         );
     }

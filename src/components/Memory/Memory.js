@@ -23,8 +23,8 @@ export default class Memory extends React.Component {
 
     render() {
         return (
-            <div className={styles.wrapper}>
-                {renderCards()}
+            <div>
+                {renderCards(modes[this.mode], this.handleClick)}
             </div>
         );
     }
@@ -41,10 +41,10 @@ Memory.propTypes = {
     mode: PropTypes.string,
 };
 
-function renderCards(onClick) {
+function renderCards(mode, onClick) {
     let cards = [];
-    for(let i = 0; i < modes[this.mode].width*modes[this.mode].height; i++){
-        cards.push(<Card opened={false} onClick={onClick}/>)
+    for(let i = 0; i < mode.width*mode.height; i++){
+        cards.push(<Card opened={false} onClick={onClick} cardType key={i}/>)
     }
     return cards;
 }
