@@ -43,6 +43,6 @@ Memory.propTypes = {
 };
 
 function renderCards(mode, onClick) {
-    let order = GetOrder();
+    let order = GetOrder(mode.width*mode.height);
     return order.map((card, id) => <Card opened={false} onClick={onClick} cardType={card} key={id}/>);
 }
