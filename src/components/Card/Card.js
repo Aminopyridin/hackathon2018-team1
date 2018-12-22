@@ -7,6 +7,7 @@ class Card extends React.Component {
         super(props);
         this.opened = props.opened;
         this.onClick = props.onClick;
+        this.cardType = props.cardType;
     }
     render () {
         return (
@@ -19,6 +20,7 @@ class Card extends React.Component {
 Card.propTypes = {
     opened: PropTypes.bool,
     onClick: PropTypes.func,
+    cardType: PropTypes.number,
 };
 
 export default Card;

@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './style.css';
 import Card from "../Card/Card";
 import PropTypes from 'prop-types'
+import GetOrder from "../Random/Random";
 
 const modes = {
     easy: {
@@ -42,9 +43,6 @@ Memory.propTypes = {
 };
 
 function renderCards(mode, onClick) {
-    let cards = [];
-    for(let i = 0; i < mode.width*mode.height; i++){
-        cards.push(<Card opened={false} onClick={onClick} cardType key={i}/>)
-    }
-    return cards;
+    let order = GetOrder();
+    return order.map((card, id) => <Card opened={false} onClick={onClick} cardType={card} key={id}/>);
 }
