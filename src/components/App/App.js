@@ -9,8 +9,8 @@ export default class App extends React.Component {
             <div className={styles.app}>
                 <div className={styles.treeWrapper}>
                     <ChristmasTree />
-                    <Memory mode={'easy'}/>
                 </div>
+                <Memory mode={'easy'}/>
             </div>
         );
     }
