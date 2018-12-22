@@ -15,7 +15,7 @@ class Card extends React.Component {
     }
     render () {
         return (
-            <div className={this.opened ? styles.ball1 : styles.cell} onClick={this.onClick}>
+            <div className={this.opened ? `${styles[`ball${this.cardType+1}`]} ${styles.cell}` : styles.cell} onClick={this.onClick}>
                 {this.cardType}
             </div>
         );
